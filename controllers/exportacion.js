@@ -13,7 +13,7 @@ const getExportacion = async(req, res) =>{
 
 }
 const postExportacion = async(req, res) => {
-    const datos= req.query //capturar datos de la url de postman//se cambio de query a body
+    const datos= req.body//capturar datos de la url de postman//se cambio de query a body
     let mensaje='Insercion exitosa'
     console.log(datos)
     try{
@@ -35,7 +35,7 @@ const postExportacion = async(req, res) => {
 
 
 const putExportacion = async(req, res) =>{
-    const {producto,kilos,precioKilo,precioDolar}=req.query //desestructurar
+    const {producto,kilos,precioKilo,precioDolar}=req.body //desestructurar
 
 try{
         const exportacion = await exportaciones.findOneAndUpdate({producto:producto},{kilos:kilos,precioKilo:precioKilo,precioDolar:precioDolar})//las primeras llaves son el valor por el cual voy a hacer la modificacion el segundo hace referencia a lo que el usuario envio
@@ -52,7 +52,7 @@ try{
 }
    const deleteExportacion = async(req, res) =>{
 
-    const { producto}=req.query //desestructurar
+    const { producto}=req.body //desestructurar
 
     try{
             const exportacion = await exportaciones.findOneAndDelete({producto:producto})//las primeras llaves son el valor por el cual voy a hacer la modificacion el segundo hace referencia a lo que el usuario envio
