@@ -3,17 +3,21 @@ const { Schema, model } = require('mongoose');
 const ExportacionSchema =({
     producto: {
         type: String,
-        unique: true
+        unique: true,
+        required:true
     },
     kilos: {
-        type: Number
+        type: Number,
+        required:true
     },
     precioKilo: {
-        type: Number
+        type: Number,
+        required:true
     },
     precioDolar: {
-        type: Number
+        type: Number,
+        required:true
     }
 });
 
-module.exports = model('Exportacion', ExportacionSchema);
+module.exports = model('Exportaciones', ExportacionSchema);
